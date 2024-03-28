@@ -1,18 +1,26 @@
-import React from "react"
-import { IoSearchSharp } from "react-icons/io5"
+import { FaSortAlphaDown, FaSortAlphaDownAlt } from "react-icons/fa"
 
-const SearchInput = () => {
+const SearchInput = ({ search, setSearch, toggleSortOrder, sortOrder }) => {
   return (
-    <form className="flex items-center gap-2">
+    <div className="flex items-center gap-2">
       <input
         type="text"
         placeholder="Search…"
         className="input input-bordered rounded-full"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
       />
-      <button type="submit" className="btn btn-circle bg-sky-500 text-white">
-        <IoSearchSharp className="w-6 h-6 outline-none" />
-      </button>
-    </form>
+      {sortOrder === "asc" ? (
+        <button type="submit" className="btn btn-circle bg-sky-500 text-white">
+          <FaSortAlphaDown fontSize={25} onClick={toggleSortOrder} />
+        </button>
+      ) : (
+        <button type="submit" className="btn btn-circle bg-sky-500 text-white">
+          <FaSortAlphaDownAlt fontSize={25} onClick={toggleSortOrder} />
+        </button>
+      )}
+    </div>
   )
 }
+
 export default SearchInput
