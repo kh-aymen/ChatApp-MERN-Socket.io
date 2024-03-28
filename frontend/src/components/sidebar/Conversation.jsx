@@ -19,9 +19,11 @@ const Conversation = ({ conversation, emoji, lastIndex }) => {
           </div>
         </div>
 
-        <div className="flex flex-col flex-1">
-          <div className="flex gap-3 justify-between">
-            <p className="font-bold text-gray-200">{conversation.fullName}</p>
+        <div className="flex flex-col flex-1 selection:not-sr-only">
+          <div className="flex gap-3 justify-between selection:not-sr-only">
+            <p className="font-bold text-gray-200 selection:not-sr-only">
+              {conversation.fullName}
+            </p>
             <span className="text-xl">{emoji}</span>
           </div>
         </div>
